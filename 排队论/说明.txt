@@ -1,0 +1,6 @@
+自行编写：
+	排队论(MM1,MMS).py
+网络资源：
+	单服务台混合模型.lg4
+	多服务台混合模型.lg4
+	网址：https://blog.csdn.net/qq_29831163/article/details/89735685

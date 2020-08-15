@@ -1,0 +1,20 @@
+model:
+sets:
+state/1..5/:p;
+endsets
+lamda=2;mu=0.5;rho=lamda/mu;s=2;k=5;  ! "s" is the number of service counters;
+lamda*p0=mu*p(1);
+(lamda+mu)*p(1)=lamda*p0+2*mu*p(2);
+@for(state(i)|i #gt#1 #and# i #lt# s:
+(lamda+i*mu)*p(i)=lamda*p(i-1)+(i+1)*mu*p(i+1)); 
+@for(state(i)|i #ge# s #and# i #lt# k:
+(lamda+s*mu)*p(i)=lamda*p(i-1)+s*mu*p(i+1));
+lamda*p(k-1)=s*mu*p(k);
+p0+@sum(state:p)=1;
+P_lost=p(k); ! Lost coustoms rate;
+lamda_e=lamda*(1-P_lost);  ! Effective arrival rate;
+L_s=@sum(state(i):i*p(i));  ! Avrange queue length;
+L_q=L_s-lamda_e/mu;  ! Avrange total queue length;
+W_s=L_s/lamda_e;  ! Avrange total staying period;
+W_q=W_s-1/mu;  ! Avrange waitting for handle time;
+end
