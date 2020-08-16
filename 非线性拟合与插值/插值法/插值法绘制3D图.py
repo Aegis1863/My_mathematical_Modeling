@@ -22,8 +22,8 @@ for i in range(len(x)):
     newp = [x[i],y[i]]
     point.append(newp)
 point = np.array(point)
-znew = griddata(point,z,(X,Y),method='cubic')
-fig=plt.figure()#画图
+znew = griddata(point,z,(X,Y),method='cubic') # 插值
+fig=plt.figure() #画图
 ax=Axes3D(fig)
 ax.plot_surface(X,Y,znew)
 plt.show()
