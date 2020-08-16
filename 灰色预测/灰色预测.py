@@ -40,24 +40,24 @@ x = [i for i in range(1,n+1)]
 xs = [i for i in range(2,n+3)]
 yn = ys[1:n+3]
 det = 0
-sum1=0
-sumpe=0
+sum1 = 0
+sumpe = 0
 for i in range(n):
-    sumpe=sumpe+y[i]
+    sumpe = sumpe+y[i]
 pe = sumpe/n
 for i in range(n):
-    sum1=sum1+(y[i]-pe)**2
-s1=math.sqrt(sum1/n)
-sumce=0
+    sum1= sum1+(y[i]-pe)**2
+s1 = math.sqrt(sum1/n)
+sumce = 0
 for i in range(1,n):
-    sumce=sumce+(y[i]-yn[i])
-ce=sumce/(n-1)
-sum2=0;
+    sumce = sumce+(y[i]-yn[i])
+ce = sumce/(n-1)
+sum2 = 0;
 for i in range(1,n):
-    sum2=sum2+(y[i]-yn[i]-ce)**2;
-s2=math.sqrt(sum2/(n-1))
-c=s2/s1
-print('后验差比值为：',c)
+    sum2 = sum2+(y[i]-yn[i]-ce)**2;
+s2 = math.sqrt(sum2/(n-1))
+c = s2/s1
+print('后验差比值为：{:.5f}'.format(c))
 if c < 0.35:
     print('系统预测精度好')
 elif c < 0.5:
